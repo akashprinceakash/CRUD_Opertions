@@ -1,9 +1,13 @@
-const express=require('express')
-const mongoose=require('mongoose')
-const cors=require('cors')
-const  UserModel=require('./model/users')
-
-mongoose.connect('mongodb://127.0.0.1:27017/crud')
+const express=require('express');
+const mongoose=require('mongoose');
+const cors=require('cors');
+const  UserModel=require('./model/users');
+require('dotenv').config();
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+}).then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 const app= express()
 app.use(cors())
