@@ -4,6 +4,11 @@ const cors=require('cors');
 const  UserModel=require('./model/users');
 require('dotenv').config();
 
+app.use(cors({
+    origin: 'https://crudmernstack.netlify.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  }));
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -11,7 +16,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch(err => console.error('MongoDB connection error:', err));
 
 const app= express()
-app.use(cors())
+
 
 app.use(express.json())
 
