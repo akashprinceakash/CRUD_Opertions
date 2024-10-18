@@ -3,6 +3,7 @@ const mongoose=require('mongoose');
 const cors=require('cors');
 const  UserModel=require('./model/users');
 require('dotenv').config();
+
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
