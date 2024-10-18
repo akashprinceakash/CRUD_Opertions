@@ -4,12 +4,12 @@ import {Link} from 'react-router-dom'
 const Users=()=>{
     const [users , setUsers]=useState([])
     useEffect(()=>{
-       axios.get('http://localhost:3001')
+       axios.get('https://crud-opertions.onrender.com')
        .then((result)=>setUsers(result.data))
        .catch(error => console.log(error))
     },[])
     const handledelete = (id) => {
-       axios.delete('http://localhost:3001/deleteUser/'+id)
+       axios.delete('https://crud-opertions.onrender.com/deleteUser/'+id)
        .then(result => {
         console.log(result)
         window.location.reload()
